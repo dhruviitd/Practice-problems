@@ -15,14 +15,17 @@ public class InterviewStreetProblem1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int n=578230,i,j ; 
-        int[] prime = new int[n];
-        for(i=2; i<n; i++){
-            if (prime[i] != 1 && n%i == 0){
+        int n=5,i,j ; 
+        int[] prime = new int[n+1];
+        for(i=2; i<=n; i++){
+            if (prime[i] != -1){
+                prime[i]=(int)n/i;
                 System.out.println(i);
-                for(j=2*i; j<n; j=j+i){
-                    prime[j]=1;
+                for(j=2*i; j<=n; j=j+i){
+                    prime[i]=prime[i]+(int)n/j;
+                    prime[j]=-1;
                 }
+                System.out.println(prime[i]);
             }
          
         }
